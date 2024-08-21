@@ -1,0 +1,182 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  color: white;
+  padding: 20px;
+}
+
+main {
+  display: flex;
+  height: calc(100vh - 100px);
+}
+
+.bingo-card-creator {
+  display: flex;
+  width: 100%;
+}
+
+.bingo-card-container {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.control-panel-container {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f0f0;
+  overflow-y: auto;
+}
+
+.control-panel .tab-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.control-panel button {
+  padding: 10px;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+}
+
+.control-panel button.active {
+  background-color: #bbb;
+}
+
+.control-panel .tab-content {
+  text-align: left;
+}
+
+input, textarea, button {
+  margin: 10px 0;
+  padding: 5px;
+  font-size: 16px;
+  display: block;
+  width: 100%;
+}
+
+textarea {
+  height: 100px;
+  margin-bottom: 10px; /* Add some space below the textarea */
+}
+
+.items-container {
+  position: relative;
+  margin-bottom: 60px; /* Increased to make more room for buttons */
+}
+
+.items-actions {
+  position: static; /* Change from absolute to static positioning */
+  display: flex;
+  justify-content: flex-end; /* Align buttons to the right */
+  gap: 10px;
+  margin-top: 10px; /* Add space above the buttons */
+}
+
+.items-actions button {
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  width: auto;
+}
+
+.items-actions button:hover {
+  background-color: #e0e0e0;
+}
+
+.free-space-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.free-space-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.free-space-label {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.control-panel input[type="text"] {
+  width: 60px;
+  text-align: right;
+  padding-right: 5px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.input-group label {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.input-group input {
+  width: 60px;
+  text-align: right;
+  padding-right: 5px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 5px;
+  width: auto;
+}
+
+.print-button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.print-button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.print-button:hover {
+  background-color: #45a049;
+}
+
+/* ... (keep other styles) */
+
+/* Remove these styles as they're now in BingoCard.css */
+.bingo-card table,
+.bingo-card th,
+.bingo-card td {
+  /* Remove styles */
+}
+
+/* ... (keep other styles) */
