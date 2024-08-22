@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { generatePDF } from '../utils/pdfGenerator';
 
 function ControlPanel({ settings, updateSettings }) {
   const [activeTab, setActiveTab] = useState('Text');
@@ -16,6 +17,10 @@ function ControlPanel({ settings, updateSettings }) {
   const deduplicateItems = () => {
     const uniqueItems = [...new Set(settings.items.split(',').map(item => item.trim()))].join(', ');
     updateSettings({ items: uniqueItems });
+  };
+
+  const handlePrint = () => {
+    generatePDF(settings);
   };
 
   const renderTabContent = () => {
@@ -97,6 +102,11 @@ function ControlPanel({ settings, updateSettings }) {
       </div>
       <div className="tab-content">
         {renderTabContent()}
+      </div>
+      <div className="print-button-container">
+        <button onClick={handlePrint} className="print-button">
+          Print Bingo Card
+        </button>
       </div>
     </div>
   );
