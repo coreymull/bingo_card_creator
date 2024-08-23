@@ -8,6 +8,7 @@ function BingoCardCreator() {
     cardTitle: '',
     titleFontFamily: 'Arial',
     titleFontSize: '16',
+    titleColor: '#000000',
     titleFontStyles: {
       bold: false,
       italic: false,

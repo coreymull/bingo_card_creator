@@ -2,7 +2,7 @@ import React from 'react';
 import './BingoCard.css';
 
 const BingoCard = ({ settings }) => {
-  const { size, items, freeSpace, cardTitle, titleFontFamily, titleFontSize, titleFontStyles } = settings;
+  const { size, items, freeSpace, cardTitle, titleFontFamily, titleFontSize, titleColor, titleFontStyles } = settings;
   const itemList = items.split(',').map(item => item.trim()).filter(item => item !== '');
   const card = Array(size).fill().map(() => Array(size).fill(''));
 
@@ -29,7 +29,8 @@ const BingoCard = ({ settings }) => {
     textDecoration: [
       titleFontStyles?.underline ? 'underline' : '',
       titleFontStyles?.strikethrough ? 'line-through' : ''
-    ].join(' ').trim()
+    ].join(' ').trim(),
+    color: titleColor || '#000000'
   };
 
   const renderCardTitle = () => {

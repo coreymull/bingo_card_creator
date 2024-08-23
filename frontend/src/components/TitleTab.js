@@ -55,6 +55,15 @@ function TitleTab({ settings, updateSettings }) {
           ))}
         </select>
       </div>
+      <div className="input-group">
+        <label htmlFor="titleColor">Title Color:</label>
+        <input
+          type="color"
+          id="titleColor"
+          value={settings.titleColor || '#000000'}
+          onChange={(e) => updateSettings({ titleColor: e.target.value })}
+        />
+      </div>
       <div className="font-style-checkboxes">
         <label>
           <input
