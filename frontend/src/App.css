@@ -136,3 +136,24 @@ textarea {
 .print-button:hover {
   background-color: #45a049;
 }
+
+.save-load-controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.save-load-controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.save-load-controls select {
+  padding: 10px;
+  font-size: 16px;
+}

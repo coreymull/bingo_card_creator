@@ -1,79 +1,68 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import BingoCard from './BingoCard';
 import ControlPanel from './ControlPanel';
 
-function BingoCardCreator() {
-  const [cardSettings, setCardSettings] = useState({
-    cardName: '',
-    cardTitle: '',
-    titleFontFamily: 'Arial',
-    titleFontSize: '16',
-    titleColor: '#000000',
-    titleFontStyles: {
-      bold: false,
-      italic: false,
-      underline: false,
-      strikethrough: false
-    },
+const BingoCardCreator = () => {
+  const [settings, setSettings] = useState({
     size: 5,
     items: '',
-    freeSpace: false,
-    cellBorder: {
-      thickness: 1,
-      style: 'solid',
-      color: '#000000'
-    },
-    cellBackground: {
-      type: 'solid',
-      color: '#ffffff',
-      gradientColor1: '#ffffff',
-      gradientColor2: '#000000',
-      gradientDirection: 'to right',
-      pattern: 'none'
-    },
-    cellText: {
-      fontFamily: 'Arial',
-      fontSize: 16,
-      color: '#000000',
-      align: 'center',
-      styles: {
-        bold: false,
-        italic: false,
-        underline: false
-      }
-    },
+    freeSpace: true,
+    cardTitle: 'BINGO',
+    cardName: '', // Add cardName to settings
+    titleFontFamily: 'Arial',
+    titleFontSize: 16,
+    titleColor: '#000000',
+    titleFontStyles: {},
+    cellBackground: {},
+    cellText: {},
+    cellBorder: {},
     showFooter: false,
     footerText: '',
     footerFontFamily: 'Arial',
     footerFontSize: 16,
     footerColor: '#000000',
-    footerFontStyles: {
-      bold: false,
-      italic: false,
-      underline: false
-    },
+    footerFontStyles: {},
     footerAlign: 'center',
-    footerPositionX: 50,
-    footerPositionY: 50
+    footerPositionX: 0,
+    footerPositionY: 0
   });
 
-  const updateSettings = useCallback((newSettings) => {
-    setCardSettings(prevSettings => ({ ...prevSettings, ...newSettings }));
-  }, []);
+  const [savedCards, setSavedCards] = useState({});
+  const [selectedCard, setSelectedCard] = useState('');
+
+  const updateSettings = (newSettings) => {
+    setSettings({ ...settings, ...newSettings });
+  };
+
+  const saveCard = () => {
+    const cardName = settings.cardName || settings.cardTitle;
+    setSavedCards({ ...savedCards, [cardName]: settings });
+  };
+
+  const loadCard = (cardName) => {
+    setSettings(savedCards[cardName]);
+    setSelectedCard(cardName);
+  };
 
   return (
     <div className="bingo-card-creator">
       <div className="bingo-card-container">
-        <BingoCard settings={cardSettings} />
+        <BingoCard settings={settings} />
+        <div className="save-load-controls">
+          <button onClick={saveCard}>Save Card</button>
+          <select onChange={(e) => loadCard(e.target.value)} value={selectedCard}>
+            <option value="" disabled>Select a saved card</option>
+            {Object.keys(savedCards).map((cardName) => (
+              <option key={cardName} value={cardName}>{cardName}</option>
+            ))}
+          </select>
+        </div>
       </div>
       <div className="control-panel-container">
-        <ControlPanel 
-          settings={cardSettings} 
-          updateSettings={updateSettings} 
-        />
+        <ControlPanel settings={settings} updateSettings={updateSettings} />
       </div>
     </div>
   );
-}
+};
 
 export default BingoCardCreator;

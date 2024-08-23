@@ -16,17 +16,23 @@ function TextTab({ settings, updateSettings }) {
     updateSettings({ items: uniqueItems });
   };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    updateSettings({ [name]: value });
+  };
+
   return (
     <div className="text-tab">
       <div className="input-group full-width">
-        <label htmlFor="cardName">Card Name:</label>
-        <input
-          id="cardName"
-          type="text"
-          value={settings.cardName}
-          onChange={(e) => updateSettings({ cardName: e.target.value })}
-          className="full-width-input"
-        />
+        <label>
+          Card Name:
+          <input
+            type="text"
+            name="cardName"
+            value={settings.cardName || ''}
+            onChange={handleInputChange}
+          />
+        </label>
       </div>
       <div className="input-group full-width">
         <label htmlFor="cardTitle">Card Title:</label>
