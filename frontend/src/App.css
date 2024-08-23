@@ -136,14 +136,3 @@ textarea {
 .print-button:hover {
   background-color: #45a049;
 }
-
-/* ... (keep other styles) */
-
-/* Remove these styles as they're now in BingoCard.css */
-.bingo-card table,
-.bingo-card th,
-.bingo-card td {
-  /* Remove styles */
-}
-
-/* ... (keep other styles) */
