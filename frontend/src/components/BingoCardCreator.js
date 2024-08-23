@@ -41,7 +41,7 @@ function BingoCardCreator() {
         italic: false,
         underline: false
       }
-    },
+    }
   });
 
   const updateSettings = useCallback((newSettings) => {

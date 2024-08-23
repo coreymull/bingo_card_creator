@@ -69,11 +69,12 @@ const BingoCard = ({ settings }) => {
 
   const cellStyle = {
     ...getCellBackgroundStyle(),
-    ...getCellTextStyle(),
     borderWidth: `${settings.cellBorder?.thickness || 1}px`,
     borderStyle: settings.cellBorder?.style || 'solid',
     borderColor: settings.cellBorder?.color || '#000000'
   };
+
+  const cellContentStyle = getCellTextStyle();
 
   const renderCardTitle = () => {
     if (cardTitle.toUpperCase() === cardTitle && cardTitle.length === size) {
@@ -108,7 +109,7 @@ const BingoCard = ({ settings }) => {
             <tr key={i}>
               {row.map((item, j) => (
                 <td key={j} style={cellStyle}>
-                  <div className="cell-content">{item}</div>
+                  <div className="cell-content" style={cellContentStyle}>{item}</div>
                 </td>
               ))}
             </tr>
