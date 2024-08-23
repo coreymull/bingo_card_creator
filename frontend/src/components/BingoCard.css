@@ -68,9 +68,15 @@
 .bingo-card tfoot td {
   border-top: 1px solid black;
   padding: 10px;
+  position: relative;
+  height: 50px; /* Adjust this value as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bingo-card .footer-content {
   font-size: 14px;
   text-align: center;
+  white-space: nowrap; /* Ensure the text does not wrap */
 }

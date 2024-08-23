@@ -51,7 +51,10 @@ function BingoCardCreator() {
       bold: false,
       italic: false,
       underline: false
-    }
+    },
+    footerAlign: 'center',
+    footerPositionX: 50,
+    footerPositionY: 50
   });
 
   const updateSettings = useCallback((newSettings) => {

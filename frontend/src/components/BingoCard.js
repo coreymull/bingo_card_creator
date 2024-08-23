@@ -107,12 +107,15 @@ const BingoCard = ({ settings }) => {
         fontWeight: settings.footerFontStyles?.bold ? 'bold' : 'normal',
         fontStyle: settings.footerFontStyles?.italic ? 'italic' : 'normal',
         textDecoration: settings.footerFontStyles?.underline ? 'underline' : 'none',
+        textAlign: settings.footerAlign || 'center',
+        transform: `translate(${settings.footerPositionX || 0}px, ${settings.footerPositionY || 0}px)`,
+        whiteSpace: 'nowrap' // Ensure the text does not wrap
       };
 
       return (
         <tfoot>
           <tr>
-            <td colSpan={size}>
+            <td colSpan={size} style={{ position: 'relative', height: '50px', display: 'flex', alignItems: 'center', justifyContent: settings.footerAlign }}>
               <div className="footer-content" style={footerStyle}>{settings.footerText}</div>
             </td>
           </tr>

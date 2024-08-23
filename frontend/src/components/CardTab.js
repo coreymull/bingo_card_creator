@@ -31,6 +31,34 @@ function CardTab({ settings, updateSettings }) {
     });
   };
 
+  const handleFooterAlignChange = (e) => {
+    updateSettings({ footerAlign: e.target.value, footerPositionX: 0, footerPositionY: 0 });
+  };
+
+  const handleNudge = (direction) => {
+    const nudgeAmount = 5; // Adjust this value as needed
+    let { footerPositionX, footerPositionY } = settings;
+
+    switch (direction) {
+      case 'up':
+        footerPositionY = Math.max(footerPositionY - nudgeAmount, -50);
+        break;
+      case 'down':
+        footerPositionY = Math.min(footerPositionY + nudgeAmount, 50);
+        break;
+      case 'left':
+        footerPositionX = Math.max(footerPositionX - nudgeAmount, -50);
+        break;
+      case 'right':
+        footerPositionX = Math.min(footerPositionX + nudgeAmount, 50);
+        break;
+      default:
+        break;
+    }
+
+    updateSettings({ footerPositionX, footerPositionY });
+  };
+
   return (
     <div className="card-tab">
       <div className="footer-control">
@@ -117,6 +145,27 @@ function CardTab({ settings, updateSettings }) {
                 />
                 Underline
               </label>
+            </div>
+          </div>
+          <div className="footer-align">
+            <label htmlFor="footerAlign">Alignment:</label>
+            <select
+              id="footerAlign"
+              value={settings.footerAlign || 'center'}
+              onChange={handleFooterAlignChange}
+            >
+              <option value="left">Left</option>
+              <option value="center">Center</option>
+              <option value="right">Right</option>
+            </select>
+          </div>
+          <div className="footer-nudge">
+            <label>Nudge:</label>
+            <div className="nudge-buttons">
+              <button onClick={() => handleNudge('up')}>Up</button>
+              <button onClick={() => handleNudge('down')}>Down</button>
+              <button onClick={() => handleNudge('left')}>Left</button>
+              <button onClick={() => handleNudge('right')}>Right</button>
             </div>
           </div>
         </div>

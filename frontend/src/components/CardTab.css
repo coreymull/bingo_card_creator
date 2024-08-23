@@ -90,3 +90,22 @@ input:checked + .toggle-switch:before {
   padding: 0;
   border: none;
 }
+
+.footer-align {
+  margin-top: 10px;
+}
+
+.footer-nudge {
+  margin-top: 10px;
+}
+
+.nudge-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.nudge-buttons button {
+  padding: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
