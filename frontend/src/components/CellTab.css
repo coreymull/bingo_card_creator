@@ -1,0 +1,54 @@
+.cell-tab h3 {
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+
+.cell-tab .input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.cell-tab .input-group label {
+  margin-bottom: 5px;
+}
+
+.cell-tab .input-group input,
+.cell-tab .input-group select {
+  width: 100%;
+  max-width: 200px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.cell-tab .input-group input[type="number"] {
+  text-align: left;
+}
+
+.cell-tab .input-group input[type="color"] {
+  padding: 0;
+  height: 30px;
+}
+
+.cell-tab .input-group select {
+  height: 30px;
+}
+
+.cell-tab .text-style-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.cell-tab .text-style-buttons button {
+  width: 30px;
+  height: 30px;
+  font-weight: bold;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.cell-tab .text-style-buttons button.active {
+  background-color: #ddd;
+}

@@ -33,6 +33,48 @@ const BingoCard = ({ settings }) => {
     color: titleColor || '#000000'
   };
 
+  const getCellBackgroundStyle = () => {
+    const bg = settings.cellBackground;
+    if (!bg) return {};
+
+    switch (bg.type) {
+      case 'gradient':
+        return {
+          background: `linear-gradient(${bg.gradientDirection}, ${bg.gradientColor1}, ${bg.gradientColor2})`
+        };
+      case 'pattern':
+        return {
+          backgroundColor: bg.color,
+          backgroundImage: bg.pattern
+        };
+      default:
+        return { backgroundColor: bg.color };
+    }
+  };
+
+  const getCellTextStyle = () => {
+    const text = settings.cellText;
+    if (!text) return {};
+
+    return {
+      fontFamily: text.fontFamily || 'Arial',
+      fontSize: `${text.fontSize || 16}px`,
+      color: text.color || '#000000',
+      textAlign: text.align || 'center',
+      fontWeight: text.styles?.bold ? 'bold' : 'normal',
+      fontStyle: text.styles?.italic ? 'italic' : 'normal',
+      textDecoration: text.styles?.underline ? 'underline' : 'none',
+    };
+  };
+
+  const cellStyle = {
+    ...getCellBackgroundStyle(),
+    ...getCellTextStyle(),
+    borderWidth: `${settings.cellBorder?.thickness || 1}px`,
+    borderStyle: settings.cellBorder?.style || 'solid',
+    borderColor: settings.cellBorder?.color || '#000000'
+  };
+
   const renderCardTitle = () => {
     if (cardTitle.toUpperCase() === cardTitle && cardTitle.length === size) {
       return (
@@ -65,7 +107,7 @@ const BingoCard = ({ settings }) => {
           {card.map((row, i) => (
             <tr key={i}>
               {row.map((item, j) => (
-                <td key={j}>
+                <td key={j} style={cellStyle}>
                   <div className="cell-content">{item}</div>
                 </td>
               ))}
