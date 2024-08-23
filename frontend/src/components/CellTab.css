@@ -52,3 +52,13 @@
 .cell-tab .text-style-buttons button.active {
   background-color: #ddd;
 }
+
+.cell-tab .input-group.full-width {
+  width: 100%;
+}
+
+.cell-tab .input-group.full-width textarea {
+  width: 100%;
+  max-width: none;
+  resize: vertical;
+}

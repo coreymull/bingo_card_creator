@@ -41,6 +41,10 @@ function CellTab({ settings, updateSettings }) {
     });
   };
 
+  const handleItemsChange = (value) => {
+    updateSettings({ items: value });
+  };
+
   const patterns = [
     'none',
     'url("data:image/svg+xml,%3Csvg width="20" height="20" xmlns="http://www.w3.org/2000/svg"%3E%3Crect width="20" height="20" fill="none" stroke="black" stroke-width="2"/%3E%3C/svg%3E")',
@@ -50,6 +54,18 @@ function CellTab({ settings, updateSettings }) {
 
   return (
     <div className="cell-tab">
+      <h3>Bingo Items</h3>
+      <div className="input-group full-width">
+        <label htmlFor="items">Items (comma-separated):</label>
+        <textarea
+          id="items"
+          value={settings.items}
+          onChange={(e) => handleItemsChange(e.target.value)}
+          placeholder="Enter bingo items, separated by commas"
+          rows="5"
+        />
+      </div>
+
       <h3>Cell Border</h3>
       <div className="input-group">
         <label htmlFor="borderThickness">Border Thickness (px):</label>
