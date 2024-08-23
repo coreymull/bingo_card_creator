@@ -1,0 +1,92 @@
+.card-tab {
+  padding: 10px;
+}
+
+.footer-control {
+  margin-bottom: 15px;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: all 0.3s;
+  margin-right: 10px;
+}
+
+.toggle-switch:before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: white;
+  top: 2px;
+  left: 2px;
+  transition: all 0.3s;
+}
+
+input:checked + .toggle-switch {
+  background-color: #2196F3;
+}
+
+input:checked + .toggle-switch:before {
+  transform: translateX(20px);
+}
+
+.footer-options {
+  margin-top: 15px;
+}
+
+.footer-options > div {
+  margin-bottom: 10px;
+}
+
+.footer-options label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.footer-options input[type="text"],
+.footer-options input[type="number"],
+.footer-options select {
+  width: 100%;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.footer-styles .style-options {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-styles .style-options label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.footer-color input[type="color"] {
+  width: 50px;
+  height: 30px;
+  padding: 0;
+  border: none;
+}

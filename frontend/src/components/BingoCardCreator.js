@@ -41,6 +41,16 @@ function BingoCardCreator() {
         italic: false,
         underline: false
       }
+    },
+    showFooter: false,
+    footerText: '',
+    footerFontFamily: 'Arial',
+    footerFontSize: 16,
+    footerColor: '#000000',
+    footerFontStyles: {
+      bold: false,
+      italic: false,
+      underline: false
     }
   });
 

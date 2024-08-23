@@ -98,6 +98,30 @@ const BingoCard = ({ settings }) => {
     }
   };
 
+  const renderFooter = () => {
+    if (settings.showFooter && settings.footerText) {
+      const footerStyle = {
+        fontFamily: settings.footerFontFamily || 'Arial',
+        fontSize: `${settings.footerFontSize || 16}px`,
+        color: settings.footerColor || '#000000',
+        fontWeight: settings.footerFontStyles?.bold ? 'bold' : 'normal',
+        fontStyle: settings.footerFontStyles?.italic ? 'italic' : 'normal',
+        textDecoration: settings.footerFontStyles?.underline ? 'underline' : 'none',
+      };
+
+      return (
+        <tfoot>
+          <tr>
+            <td colSpan={size}>
+              <div className="footer-content" style={footerStyle}>{settings.footerText}</div>
+            </td>
+          </tr>
+        </tfoot>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className="bingo-card">
       <table className={`grid-${size}`}>
@@ -115,6 +139,7 @@ const BingoCard = ({ settings }) => {
             </tr>
           ))}
         </tbody>
+        {renderFooter()}
       </table>
     </div>
   );

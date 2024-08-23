@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import TextTab from './TextTab';
 import TitleTab from './TitleTab';
 import CellTab from './CellTab';
+import CardTab from './CardTab';
 
 function ControlPanel({ settings, updateSettings }) {
   const [activeTab, setActiveTab] = useState('Text');
@@ -15,6 +16,8 @@ function ControlPanel({ settings, updateSettings }) {
         return <TitleTab settings={settings} updateSettings={updateSettings} />;
       case 'Cell':
         return <CellTab settings={settings} updateSettings={updateSettings} />;
+      case 'Card':
+        return <CardTab settings={settings} updateSettings={updateSettings} />;
       // Add cases for other tabs
       default:
         return <div>Content for {activeTab} tab</div>;
