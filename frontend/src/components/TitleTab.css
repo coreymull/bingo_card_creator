@@ -1,0 +1,41 @@
+.title-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.input-group.full-width {
+  flex-direction: column;
+}
+
+.input-group label {
+  align-self: flex-start;
+  margin-bottom: 5px;
+}
+
+.full-width-input, select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.font-style-checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.font-style-checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

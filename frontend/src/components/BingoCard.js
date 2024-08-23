@@ -2,7 +2,7 @@ import React from 'react';
 import './BingoCard.css';
 
 const BingoCard = ({ settings }) => {
-  const { size, items, freeSpace, cardTitle } = settings;
+  const { size, items, freeSpace, cardTitle, titleFontFamily, titleFontSize, titleFontStyles } = settings;
   const itemList = items.split(',').map(item => item.trim()).filter(item => item !== '');
   const card = Array(size).fill().map(() => Array(size).fill(''));
 
@@ -21,19 +21,34 @@ const BingoCard = ({ settings }) => {
     card[center][center] = 'FREE';
   }
 
+  const titleStyle = {
+    fontFamily: titleFontFamily || 'Arial',
+    fontSize: `${titleFontSize || 16}px`,
+    fontWeight: titleFontStyles?.bold ? 'bold' : 'normal',
+    fontStyle: titleFontStyles?.italic ? 'italic' : 'normal',
+    textDecoration: [
+      titleFontStyles?.underline ? 'underline' : '',
+      titleFontStyles?.strikethrough ? 'line-through' : ''
+    ].join(' ').trim()
+  };
+
   const renderCardTitle = () => {
     if (cardTitle.toUpperCase() === cardTitle && cardTitle.length === size) {
       return (
         <tr className="card-title">
           {cardTitle.split('').map((letter, index) => (
-            <th key={index}><div className="cell-content">{letter}</div></th>
+            <th key={index}>
+              <div className="cell-content" style={titleStyle}>{letter}</div>
+            </th>
           ))}
         </tr>
       );
     } else {
       return (
         <tr className="card-title">
-          <th colSpan={size}><div className="cell-content">{cardTitle}</div></th>
+          <th colSpan={size}>
+            <div className="cell-content" style={titleStyle}>{cardTitle}</div>
+          </th>
         </tr>
       );
     }

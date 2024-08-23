@@ -6,6 +6,14 @@ function BingoCardCreator() {
   const [cardSettings, setCardSettings] = useState({
     cardName: '',
     cardTitle: '',
+    titleFontFamily: 'Arial',
+    titleFontSize: '16',
+    titleFontStyles: {
+      bold: false,
+      italic: false,
+      underline: false,
+      strikethrough: false
+    },
     size: 5,
     items: '',
     freeSpace: false,
